@@ -1,0 +1,14 @@
+body {
+  background-color: light-dark(#fff, #000);
+}
+
+.buttonBanner {
+  border-top: 2px solid var(--mantine-color-blue-7);
+  border-bottom: 0 solid transparent;
+  transition: border-top 0.1s ease, border-bottom 0.1s ease;
+}
+
+.buttonBanner:hover {
+  border-top: 0 solid transparent;
+  border: 2px solid var(--mantine-color-blue-7);
+}
