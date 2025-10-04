@@ -12,3 +12,21 @@ body {
   border-top: 0 solid transparent;
   border: 2px solid var(--mantine-color-blue-7);
 }
+
+.cardHover {
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.cardHover:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.mantine-Notification-root{
+  background-color: light-dark(#ffffffa2, #00000094);
+  backdrop-filter: blur(10px);
+}
+
+.mantine-Notification-title, .mantine-Notification-description{
+  color: var(--mantine-color-bright);
+}

@@ -59,7 +59,7 @@ export function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Container size='lg' className={classes.inner}>
+      <Container size='xl' className={classes.inner}>
         <div className={classes.logo}>
           <Image
             src='/fimosaLogo.png'
@@ -83,7 +83,7 @@ export function Footer() {
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
-      <Container size='lg' className={classes.afterFooter}>
+      <Container size='xl' className={classes.afterFooter}>
         <Text ta='center' c="dimmed" size="sm" w='100%'>
           © {currentYear} Create with Love - <strong> Fimosa </strong> All rights reserved.
         </Text>

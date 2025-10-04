@@ -1,8 +1,10 @@
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { theme } from '../theme';
 import '@/styles/globals.css'
 
@@ -18,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/iconify_white_iconfy.ico" />
       </Head>
       <Component {...pageProps} />
+      <Notifications />
     </MantineProvider>
   );
 }

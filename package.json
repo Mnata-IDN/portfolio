@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@mantine/core": "8.3.2",
+    "@mantine/form": "^8.3.2",
     "@mantine/hooks": "8.3.2",
+    "@mantine/notifications": "^8.3.2",
     "@mantinex/mantine-logo": "^2.0.0",
     "@next/bundle-analyzer": "^15.5.3",
     "@tabler/icons-react": "^3.34.1",

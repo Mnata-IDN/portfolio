@@ -14,7 +14,7 @@ export function ColorSchemeToggle() {
       radius="md"
       size="input-md"
       aria-label="Toggle color scheme"
-      color="var(--mantine-color-white)"
+      className={classes.action}
     >
       <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
       <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />

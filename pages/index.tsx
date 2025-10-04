@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
-import { Input, Text, Button, Container, Group, Flex, Image, Grid, ThemeIcon, Stack, Card, Badge, Paper, Divider, CloseButton } from '@mantine/core';
+import { TextInput, Text, Button, Container, Group, Flex, Image, Grid, ThemeIcon, Stack, Card, Badge, Paper, Divider, CloseButton } from '@mantine/core';
 import {
   IconShoppingCart,
   IconBuildingBank,
@@ -8,7 +8,8 @@ import {
   IconPackages,
   IconAt 
 } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useForm } from '@mantine/form';
+import { Notifications } from '@mantine/notifications';
 
 export default function HomePage() {
   const mockdata = {
@@ -56,7 +57,14 @@ export default function HomePage() {
     ]
   }
 
-  const [value, setValue] = useState('');
+  const form = useForm({
+    mode: 'uncontrolled',
+    initialValues: { email: '' },
+
+    validate: {
+      email: (value: string) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    },
+  });
 
   return (
     <>
@@ -148,7 +156,8 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)" 
+                bg="light-dark(#fff, #121212)"
+                className="cardHover"
               >
                 <Stack gap="lg">
                   <ThemeIcon 
@@ -178,7 +187,8 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)" 
+                bg="light-dark(#fff, #121212)"
+                className="cardHover"
               >
                 <Stack gap="lg">
                   <ThemeIcon 
@@ -208,7 +218,8 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)" 
+                bg="light-dark(#fff, #121212)"
+                className="cardHover"
               >
                 <Stack gap="lg">
                   <ThemeIcon 
@@ -238,7 +249,8 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)" 
+                bg="light-dark(#fff, #121212)"
+                className="cardHover"
               >
                 <Stack gap="lg">
                   <ThemeIcon 
@@ -283,7 +295,7 @@ export default function HomePage() {
                   key={index}
                   span={{ base: 12, md: 4 }}
                 >
-                  <Card shadow="sm" padding="lg" radius="md" h="100%" bg="#fff">
+                  <Card shadow="sm" padding="lg" radius="md" h="100%" bg="#fff" className="cardHover">
                     <Paper shadow="sm" radius="md">
                       <Image
                         src={item.src}
@@ -349,6 +361,7 @@ export default function HomePage() {
                       display: 'flex',
                       flexDirection: 'column'
                     }}
+                    className="cardHover"
                   >
                     <Stack gap="lg" style={{ flex: 1 }}>
                       {/* Header */}
@@ -406,42 +419,59 @@ export default function HomePage() {
 
       {/* Subscribe Section */}
       <Container fluid bg='blue.5'>
-        <Container py="4em" size='xl'>
+        <Container py="2em" size='xl'>
           <Card p={{ base: "2em", sm:"4em", md: "8em 16em" }} bg='#181818' radius='md'>
             <Stack gap="lg">
               <Text size="clamp(32px, 8vw, 90px)" fw={300} c='white' ta='center'>
                 Langganan info bisnis terbaru
               </Text>
-              <Grid gutter="md">
-                <Grid.Col span={{ base: 12, sm: 8 }}>
-                  <Input 
-                    placeholder="Your email" 
-                    leftSection={<IconAt size={16} stroke={1.5} />} 
-                    value={value}
-                    onChange={(event) => setValue(event.currentTarget.value)}
-                    rightSectionPointerEvents="all"
-                    rightSection={
-                      <CloseButton
-                        onClick={() => setValue('')}
-                        style={{ display: value ? undefined : 'none' }}
-                      />
-                    }
-                    variant="filled"
-                    size="md"
-                    radius="md"
-                  />
-                </Grid.Col>
-                <Grid.Col span={{ base: 12, sm: 4 }}>
-                  <Button
-                    color="blue.6"
-                    radius="md"
-                    size="md"
-                    fullWidth
-                  >
-                    Hubungi Kami
-                  </Button>
-                </Grid.Col>
-              </Grid>
+              <form onSubmit={form.onSubmit(
+                (values) => {
+                  Notifications.show({
+                    title: 'Success',
+                    message: `Thanks! We received your email: ${values.email}`,
+                    color: 'green',
+                    withBorder: true,
+                    radius: 'md',
+                  });
+                },
+                (_validationErrors) => {
+                  Notifications.show({
+                    title: 'Failed!',
+                    message: 'Please enter a valid email address',
+                    color: 'red',
+                    withBorder: true,
+                    radius: 'md',
+                  });
+                }
+              )}
+              >
+                <Grid gutter="md">
+                  <Grid.Col span={{ base: 12, sm: 8 }}>
+                    <TextInput
+                      leftSection={<IconAt size={16} stroke={1.5} />}
+                      variant="filled"
+                      size="md"
+                      radius="md"
+                      placeholder="Your email"
+                      w='100%'
+                      key={form.key('email')}
+                      {...form.getInputProps('email')}
+                    />
+                  </Grid.Col>
+                  <Grid.Col span={{ base: 12, sm: 4 }}>
+                    <Button
+                      color="blue.6"
+                      radius="md"
+                      size="md"
+                      type="submit"
+                      fullWidth
+                    >
+                      Hubungi Kami
+                    </Button>
+                  </Grid.Col>
+                </Grid>
+              </form>
             </Stack>
           </Card>
         </Container>

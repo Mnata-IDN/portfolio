@@ -27,7 +27,8 @@
     width: 100%;
   }
   @mixin hover {
-    background-color: var(--mantine-color-blue-5);
+    background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
+    color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
   }
 }
 
@@ -37,6 +38,6 @@
   border-radius: var(--mantine-radius-md);
 
   @mixin hover {
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
   }
 }

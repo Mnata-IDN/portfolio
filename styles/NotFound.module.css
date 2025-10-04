@@ -1,0 +1,98 @@
+.root {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  text-align: center;
+  font-weight: 900;
+  font-size: 220px;
+  line-height: 1;
+  margin-bottom: var(--mantine-spacing-xl);
+  color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 #c3c3c3, -0.03em -0.04em 0 #757575,
+    0.025em 0.04em 0 #1f1f1f;
+  animation: glitch 725ms infinite;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 120px;
+  }
+}
+
+.label span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.label span:first-child {
+  animation: glitch 500ms infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translate(-0.04em, -0.03em);
+  opacity: 0.75;
+}
+
+.label span:last-child {
+  animation: glitch 375ms infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(0.04em, 0.03em);
+  opacity: 0.75;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #c3c3c3, -0.03em -0.04em 0 #757575,
+      0.025em 0.04em 0 #1f1f1f;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #c3c3c3, -0.03em -0.04em 0 #757575,
+      0.025em 0.04em 0 #1f1f1f;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #c3c3c3, 0.025em 0.035em 0 #757575,
+      -0.05em -0.05em 0 #1f1f1f;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #c3c3c3, 0.025em 0.035em 0 #757575,
+      -0.05em -0.05em 0 #1f1f1f;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #c3c3c3, 0.03em 0 0 #757575,
+      0 -0.04em 0 #1f1f1f;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #c3c3c3, 0.03em 0 0 #757575,
+      0 -0.04em 0 #1f1f1f;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #c3c3c3, -0.025em -0.04em 0 #757575,
+      -0.04em -0.025em 0 #1f1f1f;
+  }
+}
+
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  text-align: center;
+  font-weight: 900;
+  font-size: 38px;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 32px;
+  }
+}
+
+.description {
+  max-width: 500px;
+  margin: auto;
+  margin-top: var(--mantine-spacing-xl);
+  margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
+}

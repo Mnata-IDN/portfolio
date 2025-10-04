@@ -18,12 +18,10 @@ import {
   Center,
   Collapse,
   Container,
-  Divider,
   Drawer,
   Group,
   HoverCard,
   Card,
-  Flex,
   ScrollArea,
   SimpleGrid,
   Text,
@@ -31,10 +29,11 @@ import {
   UnstyledButton,
   useMantineTheme,
   Stack,
-  Title
+  Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import SVGComponent from '../Logo/Logo';
+import Link from 'next/link'
+import { SVGComponent } from '../Logo/Logo';
 import classes from './Header.module.css';
 import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle'
 
@@ -46,16 +45,19 @@ const mockdata = [
         icon: IconBuildingFactory,
         title: 'Manufaktur',
         description: 'Mendukung pengelolaan produksi, bahan baku, dan alur kerja pabrik secara efisien.',
+        link: '/solutions/manufacturing',
       },
       {
         icon: IconShoppingCart,
         title: 'Perdagangan',
         description: 'Mempermudah transaksi, manajemen penjualan, dan distribusi produk.',
+        link: '/solutions/retail',
       },
       {
         icon: IconBriefcase,
         title: 'Jasa',
         description: 'Mengelola layanan, penjadwalan, serta hubungan dengan pelanggan.',
+        link: '/solutions/services',
       },
     ]
   },
@@ -66,16 +68,19 @@ const mockdata = [
         icon: IconDatabaseOff,
         title: 'Data Terpisah',
         description: 'Informasi bisnis masih tersebar di banyak sistem dan sulit diintegrasikan.',
+        link: '/problems/data-silos',
       },
       {
         icon: IconPackageOff,
         title: 'Stok Tidak Terkelola',
         description: 'Persediaan tidak terpantau dengan baik sehingga berpotensi menimbulkan kerugian.',
+        link: '/problems/inventory-management',
       },
       {
         icon: IconManualGearbox,
         title: 'Proses Manual',
         description: 'Operasional masih dilakukan secara manual, mengurangi efisiensi kerja.',
+        link: '/problems/manual-processes',
       },
     ]
   },
@@ -86,16 +91,19 @@ const mockdata = [
         icon: IconReceipt2,
         title: 'Keuangan',
         description: 'Mengotomatiskan pencatatan transaksi, laporan keuangan, dan pengelolaan anggaran.',
+        link: '/finance',
       },
       {
         icon: IconChartBar,
         title: 'Penjualan',
         description: 'Meningkatkan proses penjualan dengan integrasi sistem pelanggan dan inventaris.',
+        link: '/sales',
       },
       {
         icon: IconBuildingWarehouse,
         title: 'Inventaris',
         description: 'Memantau stok barang secara real-time untuk mencegah kelebihan atau kekurangan.',
+        link: '/inventory',
       },
     ]
   }
@@ -107,28 +115,30 @@ export function Header() {
   const theme = useMantineTheme();
 
   const links = mockdata.map((section) => (
-    <div key={section.title}>
+    <Container size='lg' py={{ base: '0', sm: '2em' }} key={section.title}>
       <Text fw={600} size="md" mb="xs">
         {section.title}
       </Text>
       {section.items.map((item) => (
-        <UnstyledButton className={classes.subLink} key={item.title}>
-          <Group wrap="nowrap" align="flex-start">
-            <ThemeIcon size={34} variant="light" radius="md">
-              <item.icon size={22} color={theme.colors.blue[6]} />
-            </ThemeIcon>
-            <div>
-              <Text size="sm">
-                {item.title}
-              </Text>
-              <Text size="xs" c="dimmed">
-                {item.description}
-              </Text>
-            </div>
-          </Group>
-        </UnstyledButton>
+        <Link href={item.link}>
+          <UnstyledButton className={classes.subLink} key={item.title}>
+            <Group wrap="nowrap" align="flex-start">
+              <ThemeIcon size={34} variant="light" radius="md">
+                <item.icon size={22} color={theme.colors.blue[6]} />
+              </ThemeIcon>
+              <div>
+                <Text size="sm" c='var(--mantine-color-bright)'>
+                  {item.title}
+                </Text>
+                <Text size="xs" c="dimmed">
+                  {item.description}
+                </Text>
+              </div>
+            </Group>
+          </UnstyledButton>
+        </Link>
       ))}
-    </div>
+    </Container>
   ));
 
   return (
@@ -138,7 +148,7 @@ export function Header() {
           <Group justify="space-between" h="100%">
             <SVGComponent height={70} width={100}/>
             <Group h="100%" visibleFrom="md">
-                <a href="#" className={classes.link}>
+                <a href="/" className={classes.link}>
                   Beranda
                 </a>
                 <HoverCard width="auto" position="bottom" offset={20} radius="md" shadow="md" withinPortal>
@@ -158,7 +168,7 @@ export function Header() {
                       <SimpleGrid cols={{ base: 1, sm: 2, xl: 4 }}>
                         {links}
 
-                        <Card shadow="sm" m="lg" radius="md" withBorder bg="#fff">
+                        <Card className="cardHover" shadow="sm" m="lg" radius="md" withBorder bg="#fff">
                           <Stack
                             h="100%"
                             align="flex-start"
