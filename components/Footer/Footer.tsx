@@ -1,6 +1,6 @@
 import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Container, Group, Text, Image } from '@mantine/core';
-import SVGComponent from '../Logo/Logo';
+import { SVGComponent } from '../Logo/Logo';
 import classes from './Footer.module.css';
 
 const data = [
