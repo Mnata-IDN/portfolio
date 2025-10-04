@@ -33,7 +33,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link'
-import { SVGComponent } from '../Logo/Logo';
+import SVGComponent from '../Logo/Logo';
 import classes from './Header.module.css';
 import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle'
 
