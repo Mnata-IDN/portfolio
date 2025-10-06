@@ -16,7 +16,7 @@ export const SVGComponent = (props: React.JSX.IntrinsicAttributes & React.SVGPro
         transform="translate(115.9 120)"
         style={{
           fontSize: 118,
-          fill: "#333",
+          fill: "light-dark(var(--mantine-color-dark-9), var(--mantine-color-white))",
           fontFamily: "HelveticaRounded-Bold, Helvetica Rounded",
           fontWeight: 700,
         }}

@@ -61,11 +61,7 @@ export function Footer() {
     <footer className={classes.footer}>
       <Container size='xl' className={classes.inner}>
         <div className={classes.logo}>
-          <Image
-            src='/fimosaLogo.png'
-            h={40}
-            w='auto'
-          />
+          <SVGComponent height={70} width={150}/>
           <Text size="sm" c="dimmed" className={classes.description}>
             Bangun bisnis yang lebih efisien dan modern dengan solusi ERP terintegrasi dari Fimosa.
           </Text>

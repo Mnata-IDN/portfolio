@@ -1,20 +1,21 @@
 body {
-  background-color: light-dark(#fff, #000);
+  background-color: light-dark(#fff, #141414);
 }
 
 .buttonBanner {
-  border-top: 2px solid var(--mantine-color-blue-7);
+  border-top: 1px solid var(--button-color);
   border-bottom: 0 solid transparent;
   transition: border-top 0.1s ease, border-bottom 0.1s ease;
+  backdrop-filter: blur(10px);
 }
 
 .buttonBanner:hover {
-  border-top: 0 solid transparent;
-  border: 2px solid var(--mantine-color-blue-7);
+  border: 1px solid var(--button-color);
 }
 
 .cardHover {
   transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  background-color: var(--mantine-color-body);
 }
 
 .cardHover:hover {

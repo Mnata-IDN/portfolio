@@ -1,0 +1,94 @@
+.wrapper {
+  position: relative;
+  padding-top: 10em;
+  padding-bottom: 130px;
+  background-image: url(https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa);
+  background-size: cover;
+  background-position: center;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  @media (min-width: 768px) {
+    width: 70%;
+    place-self: center;
+  }
+}
+
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--mantine-spacing-md);
+  text-align: center;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+.description {
+  color: light-dark(var(--mantine-color-dark-2), var(--mantine-color-gray-4));
+  max-width: 500px;
+  margin: auto;
+  margin-top: var(--mantine-spacing-xl);
+  margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
+}
+
+.controls {
+  margin-top: var(--mantine-spacing-xl);
+  display: flex;
+  justify-content: center;
+  gap: var(--mantine-spacing-md);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex-direction: column;
+  }
+}
+
+.control {
+  &:not(:first-of-type) {
+    margin-left: var(--mantine-spacing-md);
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: 100%;
+    &:not(:first-of-type) {
+      margin-left: 0;
+      margin-top: var(--mantine-spacing-md);
+    }
+  }
+}
+
+.tab{
+  background-color: transparent;
+  border-top: 4px solid var(--mantine-color-dimmed);
+  padding: 12px 0px;
+  color: var(--mantine-color-dimmed);
+}
+
+.tab:focus{
+  border-top: 4px solid var(--mantine-color-bright);
+  color: var(--mantine-color-bright);
+}
+
+.tab:hover{
+  border-top: 4px solid var(--mantine-color-text);
+  color: var(--mantine-color-text);
+}
+
+.accordion{
+  background-color: var(--mantine-color-body);
+  border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-5));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}

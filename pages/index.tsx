@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
-import { TextInput, Text, Button, Container, Group, Flex, Image, Grid, ThemeIcon, Stack, Card, Badge, Paper, Divider, CloseButton } from '@mantine/core';
+import { Input, TextInput, Text, Button, Container, Group, Flex, Image, Grid, ThemeIcon, Stack, Card, Badge, Paper, Divider, CloseButton } from '@mantine/core';
 import {
   IconShoppingCart,
   IconBuildingBank,
@@ -10,6 +10,7 @@ import {
 } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
 import { Notifications } from '@mantine/notifications';
+import { SVGComponent } from '@/components/Logo/Logo';
 
 export default function HomePage() {
   const mockdata = {
@@ -99,7 +100,7 @@ export default function HomePage() {
 
             <Button
               size='md'
-              variant="default"
+              variant='outline'
               radius='xl'
               className='buttonBanner'
               w={{ base:'100%', sm: 'auto' }}
@@ -122,12 +123,7 @@ export default function HomePage() {
             “Sistem ERP kami membantu bisnis tumbuh lebih efisien, mengurangi proses manual, dan memudahkan pengelolaan data. Antarmuka yang intuitif membuat tim kami lebih produktif dan kolaboratif. Kini, semua laporan keuangan dan stok dapat diakses real-time, tanpa hambatan. Kami merekomendasikan solusi ini untuk perusahaan yang ingin berkembang dengan teknologi modern dan layanan profesional.”
           </Text>
           <Flex gap={12} direction={{ base:'column', sm:'row' }} ta={{ base: 'center', sm: 'left' }} align='center'>
-            <Image
-              src='/fimosaLogo.png'
-              h={40}
-              w='auto'
-              mx={4}
-            />
+            <SVGComponent height={70} width={150}/>
             <Text c='white' lh={1.5} style={{ fontSize: 'clamp(14px, 3vw, 16px)' }}>
               <Text span fw={700} inherit>Rakha Wismaya</Text><br />
               Manajer Operasional, FIMOSA
@@ -156,7 +152,6 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)"
                 className="cardHover"
               >
                 <Stack gap="lg">
@@ -187,7 +182,6 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)"
                 className="cardHover"
               >
                 <Stack gap="lg">
@@ -218,7 +212,6 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)"
                 className="cardHover"
               >
                 <Stack gap="lg">
@@ -249,7 +242,6 @@ export default function HomePage() {
                 radius="lg" 
                 withBorder
                 h="100%"
-                bg="light-dark(#fff, #121212)"
                 className="cardHover"
               >
                 <Stack gap="lg">
@@ -277,10 +269,10 @@ export default function HomePage() {
       </Container>
 
       {/* Card Section */}
-      <Container fluid bg='white'>
-        <Container py={{ base: "4em", sm: "auto" }} size='xl' >
+      <Container fluid>
+        <Container c='var(--mantine-color-bright)' py={{ base: "4em", sm: "auto" }} size='xl' >
           <Flex gap={20} h="100%" align="start" direction="column">
-            <Text c='black' style={{
+            <Text style={{
                 fontSize: 'clamp(16px, 4vw, 36px)',
                 lineHeight: 1.2
               }} fw={700} inline>
@@ -295,7 +287,7 @@ export default function HomePage() {
                   key={index}
                   span={{ base: 12, md: 4 }}
                 >
-                  <Card shadow="sm" padding="lg" radius="md" h="100%" bg="#fff" className="cardHover">
+                  <Card shadow="sm" padding="lg" radius="lg" h="100%" withBorder className="cardHover">
                     <Paper shadow="sm" radius="md">
                       <Image
                         src={item.src}
@@ -311,7 +303,7 @@ export default function HomePage() {
                         {item.category}
                       </Badge>
 
-                      <Text fw={600} size="lg" c="black">
+                      <Text fw={600} size="lg">
                         {item.title}
                       </Text>
 
@@ -355,8 +347,8 @@ export default function HomePage() {
                     shadow="sm" 
                     padding="xl" 
                     radius="lg" 
-                    h={{ base:'auto', lg: '60vh' }}
                     bg='#181818'
+                    h={{ base:'auto', lg: '60vh' }}
                     style={{
                       display: 'flex',
                       flexDirection: 'column'
@@ -364,19 +356,15 @@ export default function HomePage() {
                     className="cardHover"
                   >
                     <Stack gap="lg" style={{ flex: 1 }}>
-                      {/* Header */}
                       <div>
                         <Text fw={700} size="xl" c="white" mb="xs">
                           {item.title}
                         </Text>
                       </div>
-
-                      {/* Description */}
                       <Text size="sm" c="dimmed" lh={1.6} style={{ flex: 1 }}>
                         {item.description}
                       </Text>
 
-                      {/* Price */}
                       <div>
                         {typeof item.price === 'number' ? (
                           <Group gap="xs" align="baseline">
@@ -394,7 +382,6 @@ export default function HomePage() {
                         )}
                       </div>
 
-                      {/* Button */}
                       <Button 
                         color="blue.6" 
                         variant={index === 3 ? "filled" : "light"}
@@ -420,7 +407,7 @@ export default function HomePage() {
       {/* Subscribe Section */}
       <Container fluid bg='blue.5'>
         <Container py="2em" size='xl'>
-          <Card p={{ base: "2em", sm:"4em", md: "8em 16em" }} bg='#181818' radius='md'>
+          <Card p={{ base: "2em", sm:"4em", md: "8em 10em" }} bg='#181818' radius='md'>
             <Stack gap="lg">
               <Text size="clamp(32px, 8vw, 90px)" fw={300} c='white' ta='center'>
                 Langganan info bisnis terbaru
@@ -446,31 +433,31 @@ export default function HomePage() {
                 }
               )}
               >
-                <Grid gutter="md">
-                  <Grid.Col span={{ base: 12, sm: 8 }}>
+                <Input.Wrapper>
+                  <Flex>
                     <TextInput
                       leftSection={<IconAt size={16} stroke={1.5} />}
                       variant="filled"
-                      size="md"
-                      radius="md"
                       placeholder="Your email"
-                      w='100%'
+                      flex={1}
                       key={form.key('email')}
                       {...form.getInputProps('email')}
+                      styles={{
+                        input: { borderTopRightRadius: 0, borderBottomRightRadius: 0 }
+                      }}
                     />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, sm: 4 }}>
                     <Button
                       color="blue.6"
-                      radius="md"
-                      size="md"
                       type="submit"
-                      fullWidth
+                      style={{ 
+                        borderTopLeftRadius: 0, 
+                        borderBottomLeftRadius: 0,
+                      }}
                     >
                       Hubungi Kami
                     </Button>
-                  </Grid.Col>
-                </Grid>
+                  </Flex>
+                </Input.Wrapper>
               </form>
             </Stack>
           </Card>

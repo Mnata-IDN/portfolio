@@ -20,7 +20,7 @@ import {
   Container,
   Drawer,
   Group,
-  HoverCard,
+  Menu,
   Card,
   ScrollArea,
   SimpleGrid,
@@ -146,77 +146,77 @@ export function Header() {
       <header className={classes.header}>
         <Container size='xl'>
           <Group justify="space-between" h="100%">
-            <SVGComponent height={70} width={100}/>
+            <SVGComponent height={65} width={150}/>
             <Group h="100%" visibleFrom="md">
-                <a href="/" className={classes.link}>
-                  Beranda
-                </a>
-                <HoverCard width="auto" position="bottom" offset={20} radius="md" shadow="md" withinPortal>
-                  <HoverCard.Target>
-                    <a href="#" className={classes.link}>
-                      <Center inline>
-                        <Box component="span" mr={5}>
-                          Solusi
-                        </Box>
-                        <IconChevronDown size={16} />
-                      </Center>
-                    </a>
-                  </HoverCard.Target>
+              <a href="/" className={classes.link}>
+                Beranda
+              </a>
+              <Menu width="auto" position="bottom" offset={20} radius="md" shadow="md" withinPortal>
+                <Menu.Target>
+                  <UnstyledButton className={classes.link}>
+                    <Center inline>
+                      <Box component="span" mr={5}>
+                        Solusi
+                      </Box>
+                      <IconChevronDown size={16} />
+                    </Center>
+                  </UnstyledButton>
+                </Menu.Target>
 
-                  <HoverCard.Dropdown style={{ overflow: 'hidden', backgroundColor: 'light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-9))' }} >
-                    <Container strategy="grid" size='xl'>
-                      <SimpleGrid cols={{ base: 1, sm: 2, xl: 4 }}>
-                        {links}
+                <Menu.Dropdown style={{ overflow: 'hidden', backgroundColor: 'var(--mantine-color-body)' }} >
+                  <Container strategy="grid" size='xl'>
+                    <SimpleGrid cols={{ base: 1, sm: 2, xl: 4 }}>
+                      {links}
 
-                        <Card className="cardHover" shadow="sm" m="lg" radius="md" withBorder bg="#fff">
-                          <Stack
-                            h="100%"
-                            align="flex-start"
-                            justify="space-between"
-                            m="lg"
+                      <Card className="cardHover" shadow="sm" m="lg" radius="md" withBorder bg="#fff">
+                        <Stack
+                          h="100%"
+                          align="flex-start"
+                          justify="space-between"
+                          m="lg"
+                        >
+                          <Title
+                            style={{ whiteSpace: "normal", wordBreak: "break-word" }}
+                            order={2}
+                            fw={500}
+                            c="black"
                           >
-                            <Title
-                              style={{ whiteSpace: "normal", wordBreak: "break-word" }}
-                              order={2}
-                              fw={500}
-                              c="black"
-                            >
-                              ERP modern, bisnis makin efisien
-                            </Title>
+                            ERP modern, bisnis makin efisien
+                          </Title>
 
-                            <Text c="dimmed">
-                              Platform terintegrasi, mudah, siap berkembang
-                            </Text>
+                          <Text c="dimmed">
+                            Platform terintegrasi, mudah, siap berkembang
+                          </Text>
 
-                            <Button
-                              variant="transparent"
-                              color="black"
-                              rightSection={<IconArrowRight size={14} />}
-                              p={0}
-                            >
-                              Pelajari
-                            </Button>
-                          </Stack>
-                        </Card>
-                      </SimpleGrid>
-                    </Container>
-                  </HoverCard.Dropdown>
-                </HoverCard>
-                <a href="#" className={classes.link}>
-                    Tentang
-                </a>
-                <a href="#" className={classes.link}>
-                    Blog
-                </a>
-                <a href="#" className={classes.link}>
-                    Dukungan
-                </a>
-                <ColorSchemeToggle />
-                <Button mx="sm" variant="filled" size="md" radius="md" color='blue.1' autoContrast>Coba Demo Gratis</Button>
-            </Group>
-            <Group hiddenFrom="md">
+                          <Button
+                            variant="transparent"
+                            color="black"
+                            rightSection={<IconArrowRight size={14} />}
+                            p={0}
+                          >
+                            Pelajari
+                          </Button>
+                        </Stack>
+                      </Card>
+                    </SimpleGrid>
+                  </Container>
+                </Menu.Dropdown>
+              </Menu>
+              <a href="#" className={classes.link}>
+                  Tentang
+              </a>
+              <a href="#" className={classes.link}>
+                  Blog
+              </a>
+              <a href="#" className={classes.link}>
+                  Dukungan
+              </a>
               <ColorSchemeToggle />
-              <Burger opened={drawerOpened} onClick={toggleDrawer} color='white' />
+              <Button mx="sm" variant="filled" size="md" radius="md" color='blue.6' autoContrast>Coba Demo Gratis</Button>
+            </Group>
+            <Group hiddenFrom="md" align='center'>
+              <ColorSchemeToggle />
+              <Burger opened={drawerOpened} onClick={toggleDrawer} />
             </Group>
           </Group>
         </Container>
@@ -253,7 +253,7 @@ export function Header() {
             <a href="#" className={classes.link}>
                 Dukungan
             </a>
-            <Button variant="filled" size="md" radius="md" fullWidth autoContrast>Coba Demo Gratis</Button>
+            <Button color='blue.6' variant="filled" size="md" radius="md" fullWidth autoContrast>Coba Demo Gratis</Button>
           </Container>
         </ScrollArea>
       </Drawer>

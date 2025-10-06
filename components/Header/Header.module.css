@@ -4,9 +4,9 @@
   left: 0;
   height: 70px;
   width: 100%;
-  border-bottom: 1px solid var(--mantine-color-dark-7);
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-4));
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--mantine-color-blue-6);
+  background-color: var(--mantine-color-body);
   align-content: center;
   z-index: 9999;
   @media (max-width: $mantine-breakpoint-md) {
@@ -20,7 +20,7 @@
   padding: 12px;
   border-radius: var(--mantine-radius-md);
   text-decoration: none;
-  color: var(--mantine-color-white);
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-size: var(--mantine-font-size-md);
   @media (max-width: $mantine-breakpoint-md) {
     color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
